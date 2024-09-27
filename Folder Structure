@@ -1,0 +1,9 @@
+├── data/
+│   └── user_personalized_features.csv
+├── notebooks/
+│   └── analise_consumidor.ipynb
+├── src/
+│   └── analise.py
+├── README.md
+├── LICENSE
+└── .gitignore
