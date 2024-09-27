@@ -1,0 +1,15 @@
+
+## 2. Criação do arquivo `LICENSE`
+
+Você pode usar a Licença MIT como exemplo:
+
+```markdown
+MIT License
+
+Copyright (c) 2024 [Seu Nome]
+
+Permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia deste software e da documentação associada (o "Software"), para lidar no Software sem restrições, incluindo, sem limitação, os direitos de usar, copiar, modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender cópias do Software, e para permitir que as pessoas a quem o Software é fornecido o façam, sujeito às seguintes condições:
+
+[...]
+
+A cópia da licença MIT deve ser incluída em todas as cópias ou partes substanciais do Software.
