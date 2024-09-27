@@ -1,0 +1,57 @@
+# Instalar as bibliotecas necessárias
+!pip install pandas plotly pydeck gdown
+
+# Importar as bibliotecas necessárias
+import pandas as pd
+import plotly.express as px
+import pydeck as pdk
+import gdown
+
+# URL do Google Drive para download do arquivo
+url = 'https://drive.google.com/uc?id=1UxyfK9pYZqYCoGnfvbcwH4vhxSkU489a'
+output = 'user_personalized_features.csv'
+
+# Baixar o arquivo do Google Drive
+gdown.download(url, output, quiet=False)
+
+# Ler o arquivo CSV
+df = pd.read_csv(output)
+
+# Verificar as colunas do dataframe
+print(df.columns)
+
+# Remover espaços em branco das colunas
+df.columns = df.columns.str.strip()
+
+# Visualizar as primeiras linhas do dataframe
+print(df.head())
+
+# Gráfico 3D usando Plotly
+fig3d = px.scatter_3d(df, x='Age', y='Income', z='Total_Spending', color='Gender', size='Purchase_Frequency', hover_data=['Location', 'Interests'])
+fig3d.show()
+
+fig_table = go.Figure(data=[go.Table(
+    header=dict(values=list(df.columns),
+                fill_color='paleturquoise',
+                align='left'),
+    cells=dict(values=[df[col] for col in df.columns],
+               fill_color='lavender',
+               align='left'))
+])
+fig_table.show()
+
+# Gráfico 3D usando Pydeck (Exemplo simples)
+view = pdk.ViewState(latitude=0, longitude=0, zoom=1)
+layer = pdk.Layer(
+    'HexagonLayer',
+    df,
+    get_position=['Income', 'Age'],
+    radius=200,
+    elevation_scale=4,
+    elevation_range=[0, 1000],
+    pickable=True,
+    extruded=True,
+)
+
+deck = pdk.Deck(layers=[layer], initial_view_state=view)
+deck.show()
