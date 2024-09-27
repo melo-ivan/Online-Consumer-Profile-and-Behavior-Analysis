@@ -1,0 +1,17 @@
+# Ignorar arquivos Python compilados
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar ambientes virtuais
+venv/
+env/
+.env
+
+# Ignorar arquivos temporários e de log
+*.log
+*.tmp
+
+# Ignorar arquivos do Jupyter Notebook
+.ipynb_checkpoints
